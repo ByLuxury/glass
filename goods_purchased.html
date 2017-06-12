@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>进货单</title>
+    <link rel="icon" href="images/icon.ico">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/sidebar.css">
+    <style>
+        html, body {
+            background-color: #F7F6F2;
+        }
+
+        .page-body {
+            width: 100%;
+            height: 100%;
+        }
+
+        .content {
+            width: 86%;
+        }
+
+        .main-container {
+            width: 95%;
+            margin: 0 auto;
+        }
+
+        .content .page-head h4 {
+            margin: 21px 18px 10px -10px;
+        }
+
+        .content .product-List {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .content .product-List li {
+            float: left;
+            height: 30px;
+            line-height: 30px;
+            width: 80px;
+            text-align: center;
+            margin-top: 16px;
+            margin-right: 10px;
+            background-color: #ffffff;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .content .product-List li:hover {
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .content .product-List .choose {
+            background-color: #2e6da4;
+            color: #fff;
+        }
+        .content .search{
+            position: relative;
+            margin-top: 16px;
+            height: 26px;
+        }
+        .content .search input{
+            width: 160px;
+            outline: none;
+            box-shadow: none;
+            padding: 1px 33px 1px 61px ;
+        }
+        .content .search select{
+            outline: none;
+            box-shadow: none;
+            position: absolute;
+            width: 60px;
+            height: 26px;
+        }
+        .content .search button{
+            border: none;
+            outline: none;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            top: 4px;
+            text-align: center;
+            right: 10px;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+        }
+        .content .search button span{
+            color: #CCCCCC;
+        }
+        .content .search button span:hover{
+            color: #565656;
+        }
+    </style>
+</head>
+<body class="clearfix">
+<nav>
+    <div class="container-top">
+        <div class="nav-left pull-left">
+            <div class="logo pull-left">眼镜管理系统</div>
+            <ul class="nav-left">
+                <li class="active">采购进货单</li>
+                <li><a href="#" title="查看帮助">帮助 <span class="glyphicon glyphicon-question-sign"></span></a></li>
+            </ul>
+        </div>
+        <div class="nav-right pull-right">
+            <ul class="nav-right">
+                <li class="msg" title="消息">
+                    <a href=""><span class="glyphicon glyphicon-envelope"></span></a>
+                </li>
+                <li class="Settings" title="设置">
+                    <a href=""><span class="glyphicon glyphicon-cog"></span></a>
+                </li>
+                <li class="manager" title="管理员">
+                    <a href=""><span class="glyphicon glyphicon-user"></span></a>
+                </li>
+                <li class="exit" title="退出">
+                    <a href=""><span class="glyphicon glyphicon-log-out"></span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="page-body clearfix">
+    <div class="sidebar pull-left clearfix">
+        <ul>
+            <li><span class="glyphicon glyphicon-folder-open"></span>&nbsp;&nbsp;库存商品</li>
+            <ul class="sub-sidebar">
+                <li><a href="commodity_stocks.html" >商品类别</a></li>
+            </ul>
+            <li><span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;销售明细</li>
+            <ul class="sub-sidebar">
+                <li><a href="customer_detail.html">客户明细</a></li>
+                <li><a href="#">商品明细</a></li>
+            </ul>
+            <li><span class="glyphicon glyphicon-credit-card"></span>&nbsp;&nbsp;账单管理</li>
+            <ul class="sub-sidebar">
+                <li><a href="#">收入单</a></li>
+                <li><a href="#">支出单</a></li>
+            </ul>
+            <li><span class="glyphicon glyphicon-copy"></span>&nbsp;&nbsp;采购进货单</li>
+            <ul class="sub-sidebar checked">
+                <li><a href="goods_purchased.html"  class="checked-a">进货单</a></li>
+                <li><a href="#">商品详情</a></li>
+            </ul>
+            <li><span class="glyphicon glyphicon-paste"></span>&nbsp;&nbsp;采购退货单</li>
+            <ul class="sub-sidebar">
+                <li><a href="goods_returned.html">退货商品</a></li>
+            </ul>
+            <li><span class="glyphicon glyphicon-th"></span>&nbsp;&nbsp;连锁店管理</li>
+            <ul class="sub-sidebar">
+                <li><a href="#">总店</a></li>
+                <li><a href="#">分店一</a></li>
+                <li><a href="#">分店二</a></li>
+            </ul>
+            <li><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;管理员设置</li>
+            <ul class="sub-sidebar">
+                <li><a href="#">查看管理员</a></li>
+                <li><a href="#">添加管理员</a></li>
+                <li><a href="#">修改密码</a></li>
+            </ul>
+        </ul>
+    </div>
+    <div class="content pull-left">
+        <div class="main-container">
+            <!--<div class="page-head">-->
+            <!--<h4 class="pull-left">退货单</h4>-->
+            <!--<ul class="product-List clearfix pull-left">-->
+            <!--<li class="choose">镜片</li>-->
+            <!--<li>镜框</li>-->
+            <!--<li>护理液</li>-->
+            <!--<li>镜盒</li>-->
+            <!--<li>眼药水</li>-->
+            <!--<li>太阳镜</li>-->
+            <!--<li>隐形眼镜</li>-->
+            <!--</ul>-->
+            <div class="search pull-right">
+                <select>
+                    <option>编号</option>
+                    <option>品牌</option>
+                    <option>名称</option>
+                    <option>材料</option>
+                    <option>类型</option>
+                </select>
+                <input type="text">
+                <button class=""><span class="glyphicon glyphicon-search"></span></button>
+            </div>
+            <!--</div>-->
+            <div class="row">
+                <div class="col-md-12s">
+                    <table id="table_id_example" class="table table-bordered  table-hover table-striped">
+                        <thead>
+                        <tr class="info">
+                            <th>进货单号</th>
+                            <th>货物名称</th>
+                            <th>进货量</th>
+                            <th>供应商</th>
+                            <th>进货单价</th>
+                            <th>进货总金额</th>
+                            <th>进货时间</th>
+                            <th>编辑</th>
+                        </tr>
+                        </thead>
+                        <tbody class=".table-striped">
+                        <tr>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td><span class="glyphicon glyphicon-pencil"></span>&nbsp;<span class="glyphicon glyphicon-trash"></span></td>
+                        </tr>  <tr>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td><span class="glyphicon glyphicon-pencil"></span>&nbsp;<span class="glyphicon glyphicon-trash"></span></td>
+                        </tr>  <tr>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td><span class="glyphicon glyphicon-pencil"></span>&nbsp;<span class="glyphicon glyphicon-trash"></span></td>
+                        </tr>
+                        <tr>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td><span class="glyphicon glyphicon-pencil"></span>&nbsp;<span class="glyphicon glyphicon-trash"></span></td>
+                        </tr> <tr>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td><span class="glyphicon glyphicon-pencil"></span>&nbsp;<span class="glyphicon glyphicon-trash"></span></td>
+                        </tr> <tr>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td><span class="glyphicon glyphicon-pencil"></span>&nbsp;<span class="glyphicon glyphicon-trash"></span></td>
+                        </tr> <tr>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td><span class="glyphicon glyphicon-pencil"></span>&nbsp;<span class="glyphicon glyphicon-trash"></span></td>
+                        </tr> <tr>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td><span class="glyphicon glyphicon-pencil"></span>&nbsp;<span class="glyphicon glyphicon-trash"></span></td>
+                        </tr> <tr>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td><span class="glyphicon glyphicon-pencil"></span>&nbsp;<span class="glyphicon glyphicon-trash"></span></td>
+                        </tr> <tr>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td><span class="glyphicon glyphicon-pencil"></span>&nbsp;<span class="glyphicon glyphicon-trash"></span></td>
+                        </tr> <tr>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td><span class="glyphicon glyphicon-pencil"></span>&nbsp;<span class="glyphicon glyphicon-trash"></span></td>
+                        </tr> <tr>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td>1111</td>
+                            <td><span class="glyphicon glyphicon-pencil"></span>&nbsp;<span class="glyphicon glyphicon-trash"></span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/jquery-3.2.0.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/sidebar.js"></script>
+<script src="js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#table_id_example').DataTable({
+            language: {
+                url: '/localisation/Chinese.json',
+                "sProcessing": "处理中...",
+                "sLengthMenu": "显示 _MENU_ 项结果",
+                "sZeroRecords": "没有匹配结果",
+                "sInfo": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+                "sInfoEmpty": "显示第 0 至 0 项结果，共 0 项",
+                "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
+                "sInfoPostFix": "",
+                "sSearch": "搜索:",
+                "sUrl": "",
+                "sEmptyTable": "表中数据为空",
+                "sLoadingRecords": "载入中...",
+                "sInfoThousands": ",",
+                "oPaginate": {
+                    "sFirst": "首页",
+                    "sPrevious": "上页",
+                    "sNext": "下页",
+                    "sLast": "末页"
+                },
+                "oAria": {
+                    "sSortAscending": ": 以升序排列此列",
+                    "sSortDescending": ": 以降序排列此列"
+                }
+            }
+        });
+        $('#table_id_example_filter').hide();
+    });
+</script>
+</body>
+</html>

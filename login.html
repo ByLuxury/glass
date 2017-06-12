@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>登录</title>
+    <link rel="icon" href="images/icon.ico">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+</head>
+<style>
+    body {
+        /*background: #42566a;*/
+        background: url("images/login_background_c67b417.jpg") no-repeat;
+        overflow: hidden;
+    }
+
+    .login-container {
+        background: #F3F3F3;
+        max-width: 340px;
+        padding: 20px;
+        margin: 100px auto;
+        border: 3px solid #F3F3F3;
+        box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+        -webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+        -moz-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+    }
+
+    label {
+        width: 100%;
+    }
+
+    input {
+        width: 100%;
+        margin: 0 auto 30px;
+        display: inline-block;
+    }
+
+    input[type="button"] {
+        color: #fff;
+        border: none;
+        font-weight: 300;
+        background: #179C81;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        -webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        -moz-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    input[type="button"]:hover {
+        background: #18896e;
+    }
+
+    .form-group {
+        position: relative;
+    }
+
+    .form-control {
+        padding: 6px 30px;
+        border-radius: 0;
+        box-shadow: none;
+        transition: all 0.3s;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+    }
+
+    .form-control:focus {
+        /*box-shadow: none;*/
+        border: 1px solid #179C81;
+        box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.1);
+        -webkit-box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.1);
+        -moz-box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        font-weight: 600;
+        color: #414141;
+        text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    p, h1 {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .glyphicon {
+        position: absolute;
+        color: #8c8c8c;
+        top: 10px;
+        left: 9px;
+    }
+
+    .clearInfo {
+        display: block;
+        position: absolute;
+        top: 8px;
+        right: 7px;
+        color: #E63733;
+    }
+
+    .other span {
+        padding: 0 3px;
+    }
+</style>
+<body>
+<div class="login-container">
+    <div class="box">
+        <h1>眼镜店管理系统</h1>
+        <form action="" method="post" class="login-form">
+            <div class="form-group">
+                <input type="text" id="name" name="" placeholder="管理员" class="form-control" required>
+                <span class="glyphicon glyphicon-user"></span>
+                <!--<div class="erro clearInfo" >请输入用户名</div>-->
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" name="" placeholder="密码" class="form-control" required>
+                <span class="glyphicon glyphicon-lock"></span>
+            </div>
+            <input id="submit" type="button" value="登录" class="form-control">
+            <p class="other"><a href="javascrip:">忘记密码？</a><span>|</span><a href="javascrip:">没有帐号？去注册</a></p>
+        </form>
+    </div>
+</div>
+<script src="js/jquery-3.2.0.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/wow.min.js"></script>
+<script>
+    $(function () {
+        var name = $("#name");
+        var password = $("#password");
+        var submit = $("#submit");
+
+//        submit.click(function () {
+//            if (!name.val()) {
+//                name.css('border-color','#E63733')
+//            }
+//        })
+
+
+    })
+</script>
+</body>
+</html>

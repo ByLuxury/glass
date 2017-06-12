@@ -1,0 +1,60 @@
+/*导航条*/
+nav {
+	height: 60px;
+	width: 100%;
+	color: #fff;
+	background-color: #324157;
+	border-bottom: 1px solid #d4d4d4;
+	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+nav .logo {
+	margin: 12px 20px 0 0;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+nav ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	overflow: hidden;
+}
+
+nav .nav-left li,nav .nav-right li{
+	float: left;
+	height: 59px;
+	text-align: center;
+	line-height: 59px;
+	margin-right: 1px;
+}
+nav .nav-left li{
+	width: 80px;
+}
+nav .nav-right li {
+	width: 50px;
+}
+
+nav .nav-left li a ,nav .nav-right li a{
+	display: block;
+	text-decoration: none;
+	color: #fff;
+	font-size: 15px;
+}
+
+nav ul li a:link {
+	text-decoration: none;
+}
+
+nav ul li a:hover,nav .nav-right li a:hover  {
+	background-color: #48576A;
+}
+
+nav .container-top {
+	width: 95%;
+	margin: 0 auto;
+}
+
+nav .nav-left .active {
+	background-color: #48576A;
+}
